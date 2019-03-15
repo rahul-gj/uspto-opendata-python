@@ -1,43 +1,33 @@
-.. image:: https://img.shields.io/badge/Python-2.7,%203.6-green.svg
-    :target: https://pypi.org/project/uspto-opendata-python/
-
-.. image:: https://img.shields.io/pypi/v/uspto-opendata-python.svg
-    :target: https://pypi.org/project/uspto-opendata-python/
-
-.. image:: https://img.shields.io/github/tag/ip-tools/uspto-opendata-python.svg
-    :target: https://github.com/ip-tools/uspto-opendata-python
+.. image:: https://img.shields.io/badge/PYthon3.6-green.svg
 
 |
 
 ##########################
-USPTO Open Data API client
+USPTO Peds API client
 ##########################
 
 
 *****
 About
 *****
-``uspto-opendata-python`` is a client library for accessing the USPTO Open Data APIs.  It is written in Python.
+``uspto-peds-python`` is a client library for accessing the USPTO peds Data APIs.  It is written in Python.
 
 Currently, it implements API wrappers for the
 
-- `Patent Examination Data System (PEDS)`_
-- `PAIR Bulk Data (PBD)`_ system (decommissioned, so defunct)
+- `Patent Examination Data System (PEDS) search by numbers only`_
 
-Both systems contain bibliographic, published document and patent term extension data in Public PAIR from 1981 to present.
+The PEDS systems contain bibliographic, published document and patent term extension data in Public PAIR from 1981 to present.
 There is also some data dating back to 1935.
 
-The PEDS system provides additional information concerning the transaction activity that has occurred for each patent.
+The PEDS system also provides information concerning the transaction activity that has occurred for each patent.
 The transaction history includes the transaction date, transaction code and transaction description for each transaction activity.
 
-.. _PAIR Bulk Data (PBD): https://pairbulkdata.uspto.gov/
 .. _Patent Examination Data System (PEDS): https://ped.uspto.gov/peds/
 
 .. attention::
 
-    The USPTO PBD service (PAIR Bulk Data system) has been decommissioned,
-    please use the USPTO PEDS service (Patent Examination Data System).
-
+    This is trimmed fork for limited use:
+    Please see original full library at https://github.com/rahul-gj/uspto-peds-python
 
 ***************
 Getting started
@@ -47,33 +37,33 @@ Install
 =======
 If you know your way around Python, installing this software is really easy::
 
-    pip install uspto-opendata-python
+    pip install https://github.com/rahul-gj/uspto-peds-python/archive/master.zip
 
 Please refer to the `virtualenv`_ page about further guidelines how to install and use this software.
 
-.. _virtualenv: https://github.com/ip-tools/uspto-opendata-python/blob/master/docs/virtualenv.rst
+.. _virtualenv: https://github.com/rahul-gj/uspto-peds-python/blob/master/docs/virtualenv.rst
 
 
 Usage
 =====
 Please refer to the respective documentation about which API you want to access:
 
-- PAIR Bulk Data (PBD) system: `PBD usage`_
-- Patent Examination Data System (PEDS): `PEDS usage`_
+    from uspto_peds import PEDSClient
 
-.. _PBD usage: https://docs.ip-tools.org/uspto-opendata-python/pbd.html
-.. _PEDS usage: https://docs.ip-tools.org/uspto-opendata-python/peds.html
+    client = PEDSClient()
+
+    client.search('patentNumber:(6583088 6875727 8697602)')
 
 
 *******************
 Project information
 *******************
-``uspto-opendata-python`` is released under the MIT license.
-The code lives on `GitHub <https://github.com/ip-tools/uspto-opendata-python>`_ and
-the Python package is published to `PyPI <https://pypi.org/project/uspto-opendata-python/>`_.
-You might also want to have a look at the `documentation <https://docs.ip-tools.org/uspto-opendata-python/>`_.
+``uspto-peds-python`` is released under the MIT license.
+The code lives on `GitHub <https://github.com/rahul-gj/uspto-peds-python>`_ and
+the Python package is to be published to `PyPI <https://pypi.org/project/uspto-peds-python/>`_.
 
-The software has been tested on Python 2.7 and Python 3.6.
+
+The software has been tested on Python 3.6.
 
 If you'd like to contribute you're most welcome!
 Spend some time taking a look around, locate a bug, design issue or
@@ -127,4 +117,3 @@ appropriate acknowledgement (e.g., "Source: United States Patent and Trademark O
 
 .. _USPTO general terms: https://www.uspto.gov/terms-use-uspto-websites#copyright
 .. _PatentsView API terms: http://www.patentsview.org/api/faqs.html#what-api
-
