@@ -17,15 +17,10 @@ class PEDSClient:
     See also: https://ped.uspto.gov/peds/#/apiDocumentation
     Module is self explanatory. for detailed explanation see original package.
     """
-    DATASOURCE_NAME      = 'peds'
-    QUERY_URL            = 'https://ped.uspto.gov/api/queries'
-    PACKAGE_REQUEST_URL  = 'https://ped.uspto.gov/api/queries/{query_id}/package?format={format}'
-    PACKAGE_STATUS_URL   = 'https://ped.uspto.gov/api/queries/{query_id}?format={format}'
-    PACKAGE_DOWNLOAD_URL = 'https://ped.uspto.gov/api/queries/{query_id}/download?format={format}'
+    QUERY_URL = 'https://ped.uspto.gov/api/queries'
 
     def __init__(self):
         self.session = requests.Session()
-        self.downloader = None
 
     def query(self, expression):
         logger.info('Querying for expression=%s', expression)
